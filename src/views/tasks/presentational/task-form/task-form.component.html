@@ -1,0 +1,49 @@
+<form #f="ngForm"
+      (ngSubmit)="_submitForm(f)"
+      [formGroup]="_form">
+  <div [fxLayoutAlign]="(_isHandset$ | async) ? 'start start' : 'start end'"
+       [fxLayout]="(_isHandset$ | async) ? 'column' : 'row'"
+       fxLayoutGap="5px">
+    <mat-form-field [fxFlex]="(_isHandset$ | async) ? 'noshrink' : 'auto 1 0'"
+                    [ngClass]="(_isHandset$ | async) ? 'full-width' : ''"
+                    appearance="fill">
+      <label>Descrição da Tarefa</label>
+      <textarea autocomplete="off"
+                formControlName="descricaoTarefa"
+                matInput
+                rows="5"></textarea>
+    </mat-form-field>
+
+    <mat-form-field [fxFlex]="(_isHandset$ | async) ? 'noshrink' : 20"
+                    [ngClass]="(_isHandset$ | async) ? 'full-width' : ''"
+                    appearance="fill">
+      <mat-label>Data proposta para conclusão</mat-label>
+      <input [matDatepicker]="picker"
+             autocomplete="off"
+             formControlName="dataPrevista"
+             matInput>
+      <mat-datepicker-toggle matSuffix
+                             [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+  </div>
+
+  <div [fxLayoutAlign]="(_isHandset$ | async) ? 'start start' : 'start center'"
+       [fxLayout]="(_isHandset$ | async) ? 'column' : 'row'"
+       fxLayoutGap="5px">
+    <mat-form-field [fxFlex]="(_isHandset$ | async) ? 'noshrink' : ''"
+                    [ngClass]="(_isHandset$ | async) ? 'full-width' : ''"
+                    appearance="fill">
+      <mat-label>Colaborador</mat-label>
+      <input autocomplete="off"
+             formControlName="colaborador"
+             matInput>
+    </mat-form-field>
+
+    <div [ngClass]="(_isHandset$ | async) ? 'full-width' : ''">
+      <button color="primary"
+              mat-raised-button
+              type="button">Gravar Tarefa</button>
+    </div>
+  </div>
+</form>
