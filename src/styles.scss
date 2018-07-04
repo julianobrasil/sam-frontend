@@ -1,0 +1,176 @@
+// Import theming functions
+@import '~@angular/material/theming';
+// My custom theme
+@import 'src/theme.scss';
+// Use mat-color to extract individual colors from a palette as necessary.
+
+* {
+  font-family: Roboto;
+}
+
+HTML,
+body {
+  height: 100%;
+  overflow: hidden;
+}
+
+textarea {
+  resize: none;
+}
+
+hr {
+  border-top-color: rgba(0, 0, 0, 0.12);
+}
+
+.full-width {
+  width: 100% !important;
+}
+
+.full-height {
+  height: 100% !important;
+  min-height: 100% !important;
+}
+
+.app-no-outline {
+  outline: none !important;
+}
+
+.app-button-sm {
+  line-height: 30px !important;
+  font-size: 13px !important;
+  padding: 0 8px !important;
+}
+
+.app-button-xm {
+  line-height: 20px !important;
+  font-size: 13px !important;
+  padding: 0 8px !important;
+}
+
+.app-text-left {
+  text-align: left;
+}
+
+.m-top-10 {
+  margin-top: 10px;
+}
+
+.m-bottom-10 {
+  margin-bottom: 10px;
+}
+
+.m-right-10 {
+  margin-right: 10px;
+}
+
+.m-left-10 {
+  margin-left: 10px;
+}
+
+.p-10 {
+  padding: 10px;
+}
+
+.p-top-10 {
+  padding-top: 10px;
+}
+
+.empty_list {
+  padding: 20px;
+  font-weight: bold;
+  text-align: center;
+  color: mat-color($app-primary);
+}
+
+.text_empty_list {
+  margin: 20px;
+}
+
+td {
+  &.rs-td-centered.rs-td-centered {
+    text-align: center;
+  }
+}
+
+.small-font {
+  font-size: smaller !important;
+}
+
+.truncate {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.app-uppercase {
+  text-transform: uppercase;
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(-360deg);
+  }
+}
+
+.mat-icon.app-icon-search {
+  -webkit-animation: rotate 1s linear 0.1s infinite;
+  /* Safari 4+ */
+  -moz-animation: rotate 1s linear 0.1s infinite;
+  /* Fx 5+ */
+  -o-animation: rotate 1s linear 0.1s infinite;
+  /* Opera 12+ */
+  animation: rotate 1s linear 0.1s infinite;
+  /* IE 10+, Fx 29+ */
+}
+
+
+/**
+ * Modificações no tema do material
+ */
+
+.mat-input-underline {
+  height: 2px !important;
+}
+
+.mat-select-underline {
+  height: 2px !important;
+}
+
+
+/** Dialogs */
+
+.mat-dialog-title {
+  background-color: mat-color($app-primary);
+  color: white;
+  margin: -24px -24px 8px !important;
+  padding: 12px 24px;
+}
+
+
+/** Datepicker */
+
+.mat-calendar-header {
+  background-color: mat-color($app-primary);
+  color: white;
+}
+
+.mat-calendar-header {
+  .mat-calendar-previous-button,
+  .mat-calendar-next-button {
+    &.mat-icon-button {
+      color: white;
+      outline: none;
+    }
+  }
+}
+
+.mat-calendar-header .mat-calendar-period-button .mat-calendar-arrow {
+  border-top-color: white;
+}
+
+.mat-calendar-period-button.mat-button {
+  outline: none;
+}
