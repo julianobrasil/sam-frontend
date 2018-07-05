@@ -1,6 +1,22 @@
-<div class="m-10">
-  <app-task-form></app-task-form>
+<div *ngIf="_taskCreationSectionIsVisible"
+     [@flyInOut]="'in'">
+  <div class="m-10">
+    <app-task-form (taskToBeSaved)="_saveTask($event)"
+                   [inputTask]="_taskToEdit$ | async">
+    </app-task-form>
+  </div>
+  <div class="m-10">
+    <app-task-list (taskToEdit)="_loadTaskOnTheForm($event)"
+                   (taskRemoved)="_removeTask($event)"></app-task-list>
+  </div>
 </div>
-<div class="m-10">
-  <app-lista-colaboradores></app-lista-colaboradores>
+
+<div *ngIf="_employeeAlocationSectionIsVisible"
+     [@flyInOut]="'in'">
+  <div class="m-10">
+    <app-employee-alocation-form></app-employee-alocation-form>
+  </div>
+  <div class="m-10">
+    <app-alocated-employee-list></app-alocated-employee-list>
+  </div>
 </div>

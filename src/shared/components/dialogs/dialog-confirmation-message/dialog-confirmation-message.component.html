@@ -1,0 +1,25 @@
+<div mat-dialog-title>
+  {{_dialogData?.title}}
+</div>
+<div mat-dialog-content>
+  <div [innerHTML]="_dialogData?.message"></div>
+</div>
+<div mat-dialog-actions
+     align="end">
+  <button *ngIf="_dialogData?.buttonFalseVisible"
+          mat-button
+          (click)="dialogRef.close(false)"
+          color="warn"
+          [disabled]="_dialogData?.buttonFalseDisabled">{{_dialogData?.buttonFalseText}}</button>
+  <button *ngIf="!_dialogData?.buttonFalseVisible && _dialogData?.buttonTrueVisible"
+          mat-button
+          (click)="dialogRef.close(true)"
+          color="primary"
+          [disabled]="_dialogData?.buttonTrueDisabled">{{_dialogData?.buttonTrueText}}</button>
+  <button *ngIf="_dialogData?.buttonFalseVisible  && _dialogData?.buttonTrueVisible"
+          mat-button
+          (click)="dialogRef.close(true)"
+          color="primary"
+          [disabled]="_dialogData?.buttonTrueDisabled"
+          tabindex="-1">{{_dialogData?.buttonTrueText}}</button>
+</div>

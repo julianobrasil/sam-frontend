@@ -1,0 +1,38 @@
+<table>
+  <thead>
+    <tr>
+      <th>Descrição</th>
+      <th>Criado por</th>
+      <th>Status</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let task of tasks">
+      <td>{{task.description}}</td>
+      <td>{{task.owner}}</td>
+      <td>{{task.status | status}}</td>
+      <td>
+        <button mat-icon-button
+                [matMenuTriggerFor]="appMenu"
+                [matMenuTriggerData]="{task: task}">
+          <mat-icon>more_vert</mat-icon>
+        </button></td>
+    </tr>
+  </tbody>
+</table>
+<mat-menu #appMenu="matMenu">
+  <ng-template matMenuContent
+               let-task="task">
+    <button (click)="_editTask(task)"
+            mat-menu-item>
+      <mat-icon>edit</mat-icon>
+      <span>Alterar</span>
+    </button>
+    <button (click)="_removeTask(task.id)"
+            mat-menu-item>
+      <mat-icon>delete_forever</mat-icon>
+      <span>Excluir</span>
+    </button>
+  </ng-template>
+</mat-menu>

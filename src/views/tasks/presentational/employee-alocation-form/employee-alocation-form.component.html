@@ -1,0 +1,30 @@
+<form #f="ngForm"
+      (ngSubmit)="_submitForm(f)"
+      [formGroup]="_form">
+
+  <div [fxLayoutAlign]="(_isHandset$ | async) ? 'start start' : 'start end'"
+       [fxLayout]="(_isHandset$ | async) ? 'column' : 'row'"
+       fxLayoutGap="5px">
+    <mat-form-field [fxFlex]="(_isHandset$ | async) ? 'noshrink' : 'auto 1 0'"
+                    [ngClass]="(_isHandset$ | async) ? 'full-width' : ''"
+                    appearance="fill">
+      <mat-label>Colaborador</mat-label>
+      <input autocomplete="off"
+             formControlName="colaborador"
+             matInput>
+    </mat-form-field>
+
+    <div [fxFlex]="(_isHandset$ | async) ? 'noshrink' : 20"
+         [ngClass]="(_isHandset$ | async) ? 'full-width' : ''"
+         appearance="fill">
+      <button (click)="_submitForm(f)"
+              color="primary"
+              mat-raised-button
+              ngClass="full-width"
+              type="button">
+        Adicionar Colaborador
+      </button>
+    </div>
+  </div>
+
+</form>
